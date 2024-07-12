@@ -1,4 +1,5 @@
 "use strict";
+// import { Login, User } from './interfaces';
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -11,6 +12,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _Employee_id;
+Object.defineProperty(exports, "__esModule", { value: true });
 class Employee {
     get empId() {
         return __classPrivateFieldGet(this, _Employee_id, "f");
@@ -26,6 +28,13 @@ class Employee {
         __classPrivateFieldSet(this, _Employee_id, id, "f");
         this.name = name;
         this.address = address;
+    }
+    login() {
+        return {
+            name: "ibrahim",
+            id: 1,
+            email: 'crowwnzz3@gmail.com'
+        };
     }
     getNameWithAdress() {
         return `${this.name} stays at ${this.address}`;

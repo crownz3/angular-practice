@@ -1,4 +1,8 @@
-class Employee {
+// import { Login, User } from './interfaces';
+
+import * as UserLogin from './interfaces';
+
+class Employee implements UserLogin.Login {
     #id: number
 
     protected name: string
@@ -23,6 +27,14 @@ class Employee {
         this.address = address;
     }
 
+    login(): UserLogin.User {
+        return {
+            name: "ibrahim",
+                id: 1,
+                    email: 'crowwnzz3@gmail.com'
+        }
+    }
+
     getNameWithAdress(): string {
         return `${this.name} stays at ${this.address}`
     }
@@ -36,6 +48,8 @@ console.log(john.empId)
 class Manager extends Employee {
     constructor(id: number, name: string, address: string) {
         super(id, name, address)
+
+
     }
 
     // getNameWithAdress():string{
@@ -48,6 +62,7 @@ let address = john.getNameWithAdress();
 console.log(address)
 
 let mike = new Manager(2, "mike", "italy");
+
 
 console.log(mike.getNameWithAdress())
 
