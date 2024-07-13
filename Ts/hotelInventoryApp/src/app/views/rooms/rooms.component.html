@@ -1,0 +1,34 @@
+<div [hidden]="hide">
+    <div [innerText]="numberOfRooms"></div>
+
+</div>
+
+{{rooms.availableRooms ?? "No Rooms"}}
+
+<div *ngIf="rooms.availableRooms">
+    Room List
+    <table>
+        <tr [ngStyle]="{'color':rooms.availableRooms ? 'green' : 'red'}">
+            <th>S.no</th>
+            <th>Even/Odd</th>
+            <th>Room type</th>
+            <th>Amaneties</th>
+            <th>Price</th>
+            <th>Check In Time</th>
+            <th>Check Out Time</th>
+        </tr>
+        <tr *ngFor="let room of roomList | slice : 0:2;let e = even;let o=odd;let i = index" [ngClass]="{'odd' : e }">
+            <td>{{i+1}}</td>
+            <td>{{e ? "Even" : "Odd"}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.amaeties}}</td>
+            <td>{{room.price | currency : 'INR'}}</td>
+            <td>{{room.checkInTime | date }}</td>
+            <td>{{room.checkOutTime | date : 'short'}}</td>
+        </tr>
+    </table>
+
+
+</div>
+
+<button (click)="toggle()">Toggle</button>
